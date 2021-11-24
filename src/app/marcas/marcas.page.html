@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>MARCAS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+<form [formGroup]="myform">
+    <p class="ion-text-center">
+      <img src="../../assets/icon/marca.png" >
+    </p>
+
+      <ion-item lines="full">
+        <ion-label position="floating">Código de Marca </ion-label>
+        <ion-input type="number" formControlName="codmarca" ></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating">Digite la Marca</ion-label>
+        <ion-input type="text" formControlName="marca" ></ion-input>
+      </ion-item>
+
+      <p class="ion-text-center">
+      <ion-button (click)="insertarmarca(myform.value)"  >Agregar Marca</ion-button>
+      </p>
+      <p class="ion-text-center">
+      <ion-button (click)="editarmarca(myform.value)"  >Actualizar</ion-button>
+      </p>
+  </form>
+  
+  <ion-list>
+    <ion-item *ngFor="let con of lista_marcas">
+      <ion-avatar>
+        <img src="../../assets/icon/avmarca.png">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{con.codmarca}}</h2>
+        <h2>{{con.marca}}</h2>
+        <ion-button (click)="seleccionar(con)"  >Seleccionar</ion-button>
+        <ion-button color="danger" (click) ="eliminarmarca(con.idmarca)"  >Eliminar</ion-button>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+
+
+
+
+
+
+
+
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>CATEGORIAS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+<form [formGroup]="myform">
+    <p class="ion-text-center">
+      <img src="../../assets/icon/cate.png" >
+    </p>
+
+      <ion-item lines="full">
+        <ion-label position="floating">Código Categoria </ion-label>
+        <ion-input type="number" formControlName="codcategoria" ></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating">Digite Categoria</ion-label>
+        <ion-input type="text" formControlName="categoria" ></ion-input>
+      </ion-item>
+
+      <p class="ion-text-center">
+      <ion-button (click)="insertarcategoria(myform.value)"  >Agregar categoria</ion-button>
+      </p>
+      <p class="ion-text-center">
+      <ion-button (click)="editarcategoria(myform.value)"  >Actualizar</ion-button>
+      </p>
+  </form>
+  
+  <ion-list>
+    <ion-item *ngFor="let con of lista_categorias">
+      <ion-avatar>
+        <img src="../../assets/icon/avcate.png">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{con.codcategoria}}</h2>
+        <h2>{{con.categoria}}</h2>
+        <ion-button (click)="seleccionar(con)"  >Seleccionar</ion-button>
+        <ion-button color="danger" (click) ="eliminarcategoria(con.idcategoria)"  >Eliminar</ion-button>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+
+
+
+
+
+
+
+</ion-content>
